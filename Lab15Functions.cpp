@@ -8,6 +8,11 @@ double factorial(int n);
 void getInfo(int & pickFrom, int & numPicks){
   cout << "How many balls (1-12) are in the pool to pick from? ";
   cin >> pickFrom;
+  while (pickFrom > 12){
+    cout << "Input Error! There must be between 1 and 12 balls.";
+    cout << "\nHow many balls (1-12) are in the pool to pick from? ";
+    cin >> pickFrom;
+  }
   cout << "How many balls (1-7) will be drawn? ";
   cin >> numPicks;
   while (numPicks > pickFrom){
@@ -33,5 +38,7 @@ int main(){
   int pickFrom, numPicks;
   getInfo(pickFrom, numPicks);
   double ways = computeWays(pickFrom, numPicks);
+  cout << "There are " << ways << " ways to pick " << numPicks << " balls from " << endl;
   return 0;
 }
+
